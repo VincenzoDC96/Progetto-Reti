@@ -1,0 +1,210 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Main {\r\n    public static void main(String[] args) {\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision 3111bd6addcc23ec238a25c98164412519228315)
++++ b/src/Main.java	(date 1681897908109)
+@@ -1,5 +1,7 @@
++import java.time.LocalDateTime;
++
+ public class Main {
+     public static void main(String[] args) {
+ 
+     }
+-}
+\ No newline at end of file
++}
+Index: src/ClientS.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ClientS.java b/src/ClientS.java
+new file mode 100644
+--- /dev/null	(date 1681898412242)
++++ b/src/ClientS.java	(date 1681898412242)
+@@ -0,0 +1,57 @@
++import java.io.*;
++import java.net.*;
++import java.util.*;
++
++public class ClientS {
++    static class GreenPass implements Serializable {
++        String tessera;
++        Date scadenza;
++        int servizio;
++    }
++
++    public static void main(String[] args) {
++        if (args.length != 2) {
++            System.err.printf("usage: %s <IPaddress> <TesseraSanitaria>\n", args[0]);
++            System.exit(1);
++        }
++
++        String tesseraSanitaria = args[1];
++        if (tesseraSanitaria.length() != 20) {
++            System.err.println("Tessera Sanitaria non valida");
++            System.exit(1);
++        }
++
++        // preparo greenPass
++        GreenPass greenPass = new GreenPass();
++        greenPass.tessera = tesseraSanitaria;
++        greenPass.servizio = 0;
++
++        try (Socket socket = new Socket(args[0], 1026)) {
++            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
++            out.writeObject(greenPass);
++            System.out.println("Richiesta Inoltrata");
++
++            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
++            greenPass = (GreenPass) in.readObject();
++
++            System.out.printf("Tessera Sanitaria: %s\n", greenPass.tessera);
++            System.out.printf("Scadenza: %s\n", greenPass.scadenza.toString());
++            if (greenPass.scadenza.after(new Date())) {
++                System.out.println("Validita greenPass: VALIDO");
++            } else {
++                System.out.println("Validita greenPass: NON VALIDO");
++            }
++
++        } catch (UnknownHostException e) {
++            System.err.println("Host sconosciuto: " + args[0]);
++            System.exit(1);
++        } catch (IOException e) {
++            System.err.println("Errore I/O sulla connessione al server: " + args[0]);
++            System.exit(1);
++        } catch (ClassNotFoundException e) {
++            System.err.println("Classe non trovata: " + e.getMessage());
++            System.exit(1);
++        }
++        System.exit(0);
++    }
++}
+Index: src/ServerV.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ServerV.java b/src/ServerV.java
+new file mode 100644
+--- /dev/null	(date 1681898675028)
++++ b/src/ServerV.java	(date 1681898675028)
+@@ -0,0 +1,2 @@
++public class ServerV {
++}
+Index: src/GreenPass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GreenPass.java b/src/GreenPass.java
+new file mode 100644
+--- /dev/null	(date 1681897991829)
++++ b/src/GreenPass.java	(date 1681897991829)
+@@ -0,0 +1,14 @@
++import java.time.LocalDateTime;
++
++public class GreenPass {
++    String tessera;
++    int servizio;
++    LocalDateTime scadenza;
++
++    public GreenPass(String tessera, int servizio, LocalDateTime scadenza) {
++        this.tessera = tessera;
++        this.servizio = servizio;
++        this.scadenza = scadenza;
++    }
++}
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"e271153d-c8cd-4088-be0f-fdb25b8ba3e0\" name=\"Changes\" comment=\"seconda riga\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"2660c0a3-3686-4971-9f09-734f30b2e160\" />\r\n        <option name=\"url\" value=\"https://github.com/VincenzoDC96/Progetto-Reti.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OaljInYOFTy351b0ys7Xt6wNV5\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"e271153d-c8cd-4088-be0f-fdb25b8ba3e0\" name=\"Changes\" comment=\"\" />\r\n      <created>1681806710193</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681806710193</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"prima riga aggiunta\">\r\n      <created>1681808149452</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681808149452</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"seconda riga\">\r\n      <created>1681811044702</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681811044702</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"seconda riga\">\r\n      <created>1681811225834</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681811225834</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"prima riga aggiunta\">\r\n      <created>1681812087993</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681812087993</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"seconda riga\">\r\n      <created>1681813027323</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681813027324</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"prima riga aggiunta\" />\r\n    <MESSAGE value=\"seconda riga\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"seconda riga\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3111bd6addcc23ec238a25c98164412519228315)
++++ b/.idea/workspace.xml	(date 1681899574417)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="seconda riga">
++    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="Inizio Progetto">
++      <change afterPath="$PROJECT_DIR$/src/ClientS.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/GreenPass.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/ServerV.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+     </list>
+@@ -12,11 +15,18 @@
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="vincenzo" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -38,22 +48,24 @@
+     <option name="stateVersion" value="1" />
+   </component>
+   <component name="ProjectId" id="2OaljInYOFTy351b0ys7Xt6wNV5" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -115,7 +127,7 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="origin/master" />
++                        <option value="master" />
+                       </list>
+                     </value>
+                   </entry>
