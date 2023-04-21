@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="Inizio Progetto">
-      <change afterPath="$PROJECT_DIR$/src/CentroVaccinale.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ClientUtente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ServerV.java" afterDir="false" />
+    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="Creazione Client e Server">
+      <change afterPath="$PROJECT_DIR$/src/TesseraSanitaria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_04_2023_12_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_04_2023_12_32__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CentroVaccinale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CentroVaccinale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientUtente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerV.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
