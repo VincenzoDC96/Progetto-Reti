@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="Inizio Progetto">
-      <change afterPath="$PROJECT_DIR$/src/ClientS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GreenPass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ServerV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/prova" afterDir="false" />
-    </list>
+    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="Implementata comunicazione base client - server" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,6 +143,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="prima riga aggiunta" />
     <MESSAGE value="seconda riga" />
-    <option name="LAST_COMMIT_MESSAGE" value="seconda riga" />
+    <MESSAGE value="Implementata comunicazione base client - server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementata comunicazione base client - server" />
   </component>
 </project>
