@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="Implementata comunicazione base client - server" />
+    <list default="true" id="d9042c48-6ce9-49b1-a09f-589476beb7c4" name="Changes" comment="Implementata comunicazione base client - server">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_04_2023_12_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_04_2023_12_32__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_04_2023_12_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_04_2023_12_39__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_04_2023_15_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_04_2023_15_34__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CentroVaccinale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CentroVaccinale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientUtente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GreenPass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TesseraSanitaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TesseraSanitaria.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681813449063</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Implementata comunicazione base client - server">
+      <created>1682323418851</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682323418851</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
