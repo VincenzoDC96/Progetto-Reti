@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="Creazione Client e Server">
-      <change afterPath="$PROJECT_DIR$/src/TesseraSanitaria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_04_2023_12_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_04_2023_12_32__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CentroVaccinale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CentroVaccinale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClientUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientUtente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ServerV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerV.java" afterDir="false" />
-    </list>
+    <list default="true" id="e271153d-c8cd-4088-be0f-fdb25b8ba3e0" name="Changes" comment="Implementata comunicazione base client - server" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681813207391</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implementata comunicazione base client - server">
+      <created>1682111501156</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682111501156</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,7 +135,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/vincenzo" />
                       </list>
                     </value>
                   </entry>
@@ -150,6 +150,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="seconda riga" />
     <MESSAGE value="prima riga aggiunta" />
-    <option name="LAST_COMMIT_MESSAGE" value="prima riga aggiunta" />
+    <MESSAGE value="Implementata comunicazione base client - server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementata comunicazione base client - server" />
   </component>
 </project>
